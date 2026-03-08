@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 /* =========================================================
-   ETHICA OPUS SITE — BLACK + ICON BULLETS (NO COPY CHANGES)
-   Rules:
-   - Dark premium background (from premium site vibe)
-   - Icon bullets instead of plain bullets (no HTML text changes)
-   - Rounded buttons ONLY; everything else sharp (no radius)
+   ETHICA GROUP CUSTOM STATIC SITE
    ========================================================= */
 
 :root{
@@ -120,7 +116,6 @@ h1,h2,h3{
   box-shadow: 0 14px 40px rgba(0,0,0,.45);
   border-bottom-color: rgba(255,255,255,.12);
 }
-
 .nav-link{
   font-size:.82rem;
   letter-spacing:.08em;
@@ -131,11 +126,12 @@ h1,h2,h3{
 .nav-link:hover{ color: rgba(233,230,223,.95) !important; }
 .nav-link.active{ color: var(--gold2) !important; }
 
+
 /* Brand */
 .brand{ display:flex; align-items:center; gap:.4rem; }
 .brand-mark{
   width:50px; height:50px;
-  background-image: url('./ethica-icon.svg');
+  background-image: url('../img/ethica-icon.svg');
   background-size: 50px 50px;
   display: inline-block;
 }
@@ -155,6 +151,74 @@ h1,h2,h3{
   color:#EEEEEE;
 }
 
+/* =========================
+   CUSTOM NAVBAR TOGGLER
+   ========================= */
+.custom-toggler{
+  border: 0;
+  background: transparent;
+  padding: .35rem;
+  box-shadow: none !important;
+}
+
+.custom-toggler:focus,
+.custom-toggler:active{
+  outline: none;
+  box-shadow: none !important;
+}
+
+.custom-toggler .toggler-icon{
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 22px;
+}
+
+.custom-toggler .toggler-line,
+.custom-toggler .toggler-icon::before,
+.custom-toggler .toggler-icon::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--gold2);
+  transition: transform .28s ease, top .28s ease, opacity .2s ease, background-color .2s ease;
+}
+
+.custom-toggler .toggler-icon::before{
+  top: 2px;
+}
+
+.custom-toggler .toggler-line{
+  top: 10px;
+}
+
+.custom-toggler .toggler-icon::after{
+  top: 18px;
+}
+
+.custom-toggler:hover .toggler-line,
+.custom-toggler:hover .toggler-icon::before,
+.custom-toggler:hover .toggler-icon::after{
+  background-color: var(--gold);
+}
+
+/* OPEN STATE */
+.custom-toggler[aria-expanded="true"] .toggler-line{
+  opacity: 0;
+}
+
+.custom-toggler[aria-expanded="true"] .toggler-icon::before{
+  top: 10px;
+  transform: rotate(45deg);
+}
+
+.custom-toggler[aria-expanded="true"] .toggler-icon::after{
+  top: 10px;
+  transform: rotate(-45deg);
+}
+
 /* =========================================================
    HERO (premium black + optional banner image)
    - We DO NOT change hero text; styling only.
@@ -170,12 +234,11 @@ h1,h2,h3{
 }
 
 .hero::before{
-  /* Optional: if banner exists, it adds premium depth */
   content:"";
   position:absolute; inset:0;
   background:
     linear-gradient(90deg, rgba(0,0,0,.78), rgba(0,0,0,.62) 35%, rgba(0,0,0,.45)),
-    url("../img/linkedin-banner.jpg");
+    url("../img/leather-black-dark-wall.jpeg");
   background-size: cover;
   background-position: center;
   opacity: 1;
@@ -233,8 +296,8 @@ h1,h2,h3{
   transition: transform .15s ease, filter .15s ease;
 }
 .btn-gold:hover{
-background: var(--gold2);
-color: #000000;
+  background: var(--gold2);
+  color: #000000;
 }
 
 .btn-ink{
@@ -348,7 +411,8 @@ color: #000000;
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .accordion-button:not(.collapsed){
-  color: var(--gold2);
+  background: var(--gold2);
+  color: #000000;
   box-shadow:none;
 }
 .accordion-body{ color: rgba(233,230,223,.82); }
@@ -372,7 +436,10 @@ color: #000000;
 }
 .footer a{ color: rgba(233,230,223,.74); text-decoration:none; }
 .footer a:hover{ color: var(--gold2); }
-
+.copyright {
+  /*font-size: 0.8em;*/
+  color: var(--gold2);
+}
 @media (max-width: 992px){
   .hero{ padding-top: 6.2rem; padding-bottom: 3.2rem; }
 }
